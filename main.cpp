@@ -27,12 +27,12 @@ int main() {
     bool again;
 
     // Reads & populates arrays for names and colors
-    ifstream fin("names.txt"); // Opens names.txt
+    ifstream fin("names(1).txt"); // Opens names(1).txt
     if (!fin) throw "I/O Error"; // Error handling
     string names[SZ_NAMES]; // String array of 200 names
     int i = 0;
     while (fin >> names[i++]);
-    fin.close(); // Closes out of names.txt
+    fin.close(); // Closes out of names(1).txt
 
     ifstream fin1("colors.txt"); // Opens colors.txt
     if (!fin1) throw "I/O Error"; // Error handling
@@ -92,7 +92,7 @@ int main_menu(){
 // returns: The option user inputs.
 int select_goat(set<Goat> trip){ // Changed from list to set.
     int option;
-    cout << "Select a goat:\n";
+    cout << "Select a goat (Input a number from the index):\n";
     display_trip(trip); // List of goats on the trip.
     cout << "Choice --> ";
     cin >> option; // Option user makes.
@@ -149,7 +149,7 @@ void display_trip(set<Goat> trip){ // Changed from list to set.
     }
 
     int i = 1;
-    for ( Goat& g: trip){ // Displays the list of goats with name, age, color, and an index number
+    for ( Goat g: trip){ // Displays the list of goats with name, age, color, and an index number
         cout << "[" << i++ << "] " << g.get_name() << " (" << g.get_age() << ", " << g.get_color() << ") \n";
     }
 }
